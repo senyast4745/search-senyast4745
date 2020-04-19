@@ -1,19 +1,6 @@
 console.log('init');
 
-const token = getMeta("_csrf");
-const header = getMeta("_csrf_header");
 
-function getMeta(metaName) {
-    const metas = document.getElementsByTagName('meta');
-
-    for (let i = 0; i < metas.length; i++) {
-        if (metas[i].getAttribute('name') === metaName) {
-            console.log(metas[i].getAttribute('content'));
-            return metas[i].getAttribute('content');
-        }
-    }
-    return '';
-}
 
 function isValid(s) {
     if (s.length > 50) {
@@ -98,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             }
 
                         }
-                    } else {
                     }
                 };
             }

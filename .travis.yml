@@ -10,6 +10,7 @@ go:
 git:
   depth: 1
 
+
 install: true
 
 before_script:
