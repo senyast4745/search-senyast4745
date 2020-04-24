@@ -2,7 +2,7 @@ name: Go
 
 on:
   push:
-    branches-ignore:
+    branches:
       - master
 
 jobs:
@@ -44,7 +44,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: polisgo2020/search-tariel-x/search
+          repository: senyast4745/search-senyast4745/search
           tag_with_ref: true
           tag_with_sha: true
       - name: Update service
@@ -53,5 +53,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: whoami
+          port: 22
+          script: |
+            docker pull docker.pkg.github.com/senyast4745/search-senyast4745/search:latest
+            docker service update --force search
